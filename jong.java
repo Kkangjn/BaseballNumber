@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class GameAn {
+public class jong {
     public static void main(String[] args) {
         Random random = new Random();
 
@@ -100,4 +100,3 @@ public class GameAn {
 //2. 한자리 숫자에 대해 볼, 스크라이크 판단 하는 부분 구현하기
 //3. 볼, 스트라이크를 표현하는 부분 구현하기
 //4. 게임 종료하는 부분 구현하기
-
