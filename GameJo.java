@@ -32,14 +32,16 @@ public class GameJo {
         System.out.println("세 자리 숫자를 입력하시오");
         // 2-1 숫자 3개를 입력받아 저장할 곳 만들기
         // 2-2 프린트로 몇번째 시도인지 출력하기
-        int tryCount = 1;
+        int tryCount = 0;                                           // fix1 수정을 위해 try count = 0 으로 초기값을 수정
 
-        while (true) {
-            System.out.print(tryCount + "번째 시도 : ");         // fix "번째 시도 : " ) + ~~~ 뒷부분 Arrays.toString 삭제후
-            for (int i = 0; i < pickNumbers.length; i++ ){      // 반복문으로 picknumbers 배열 0 1 2 번째 출력
-                System.out.print(pickNumbers[i]);               // println 때문에 출력이 한 칸씩 내려와서 두 줄 모두 print로 작성
+        while (true) {                                              // fix1 1번째 시도 000은 초기값인데, 0번째 시도로 나오게 표시하였고,
+            if (tryCount > 0){                                      // 0번째 시도는 출력하지 않기위해 if (tryCount > 0) 이라는 조건을 추가함
+                System.out.print(tryCount + "번째 시도 : ");         // fix2 "번째 시도 : " ) + ~~~ 뒷부분 Arrays.toString 삭제후
+                for (int i = 0; i < pickNumbers.length; i++) {      // 반복문으로 picknumbers 배열 0 1 2 번째 출력
+                    System.out.print(pickNumbers[i]);               // println 때문에 출력이 한 칸씩 내려와서 두 줄 모두 print로 작성
+                }
+                System.out.println();                               // 답을 입력하는 곳이 n번째 시도 : abc 바로옆에서 시작되어서 한 줄 밑에서 시작하게 추가함
             }
-            System.out.println();                               // 답을 입력하는 곳이 n번째 시도 : abc 바로옆에서 시작되어서 한 줄 밑에서 시작하게 추가함
             for (int i = 0; i < pickNumbers.length; i++) {
                 pickNumbers[i] = scanner.nextInt();
             }
