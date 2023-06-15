@@ -29,7 +29,7 @@ public class Main {
                                             // 수정을 통해 컴퓨터가 하나의 랜덤숫자를 뽑더라도 이상없이 랜덤으로 숫자가 생성된다.
             i++;
         }
-        System.out.println(Arrays.toString(randomNumbers)); // 중복없는 난수를 출력
+        // System.out.println(Arrays.toString(randomNumbers)); // 중복없는 난수를 출력
 
         // 1-2 만들고 나서 "컴퓨터가 숫자를 생성하였습니다. 답을 맞춰보세요!" 출력하기
         System.out.println("컴퓨터가 숫자를 생성하였습니다. 답을 맞춰보세요!");
@@ -96,7 +96,7 @@ public class Main {
 
             // 4. 3S가 출력이 된다면 몇번만에 맞췄는지 출력한 후에 게임 종료하기.
             if (strike == 3) {
-                System.out.println(tryCount + "번만에 맞추셨습니다!");
+                System.out.println((tryCount+1) + "번만에 맞추셨습니다!");
                 System.out.println("게임을 종료합니다.");
                 break;
             }
