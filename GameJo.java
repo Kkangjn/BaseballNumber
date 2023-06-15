@@ -35,7 +35,6 @@ public class GameJo {
         int tryCount = 1;
 
         while (true) {
-            System.out.println(tryCount + "번째 시도 : " + Arrays.toString(pickNumbers));
             for (int i = 0; i < pickNumbers.length; i++) {
                 pickNumbers[i] = scanner.nextInt();
             }
@@ -56,6 +55,7 @@ public class GameJo {
             }
             // 3-2 숫자의 값과 위치가 모두 일치하면 일치한 횟수 + "S" +
             //     숫자의 값은 일치하지만 위치가 틀렸린 경우의 횟수 + "B" 출력하기
+            System.out.println(tryCount + "번째 시도 : " + Arrays.toString(pickNumbers));
             System.out.println(ball + "B" + strike + "S");
 
             // 4. 3S가 출력이 된다면 몇번만에 맞췄는지 출력한 후에 게임 종료하기.
