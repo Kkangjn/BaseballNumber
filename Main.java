@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GameJo {
+public class Main {
     public static void main(String[] args) {
         // 1. 랜덤으로 0~9 사이 숫자 3개 생성하기  = 랜덤함수 생성
         // 1-1 랜덤으로 숫자 3개를 생성하고 저장할 곳 만들기
