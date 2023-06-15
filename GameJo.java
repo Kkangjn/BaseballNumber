@@ -35,7 +35,11 @@ public class GameJo {
         int tryCount = 1;
 
         while (true) {
-            System.out.println(tryCount + "번째 시도 : " + Arrays.toString(pickNumbers));
+            System.out.print(tryCount + "번째 시도 : ");         // fix "번째 시도 : " ) + ~~~ 뒷부분 Arrays.toString 삭제후
+            for (int i = 0; i < pickNumbers.length; i++ ){      // 반복문으로 picknumbers 배열 0 1 2 번째 출력
+                System.out.print(pickNumbers[i]);               // println 때문에 출력이 한 칸씩 내려와서 두 줄 모두 print로 작성
+            }
+            System.out.println();                               // 답을 입력하는 곳이 n번째 시도 : abc 바로옆에서 시작되어서 한 줄 밑에서 시작하게 추가함
             for (int i = 0; i < pickNumbers.length; i++) {
                 pickNumbers[i] = scanner.nextInt();
             }
