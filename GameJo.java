@@ -34,14 +34,17 @@ public class GameJo {
         // 2-2 프린트로 몇번째 시도인지 출력하기
         int tryCount = 0;                                           // fix1 수정을 위해 try count = 0 으로 초기값을 수정
 
-        while (true) {                                              // fix1 1번째 시도 000은 초기값인데, 0번째 시도로 나오게 표시하였고,
-            if (tryCount > 0){                                      // 0번째 시도는 출력하지 않기위해 if (tryCount > 0) 이라는 조건을 추가함
-                System.out.print(tryCount + "번째 시도 : ");         // fix2 "번째 시도 : " ) + ~~~ 뒷부분 Arrays.toString 삭제후
-                for (int i = 0; i < pickNumbers.length; i++) {      // 반복문으로 picknumbers 배열 0 1 2 번째 출력
-                    System.out.print(pickNumbers[i]);               // println 때문에 출력이 한 칸씩 내려와서 두 줄 모두 print로 작성
-                }
-                System.out.println();                               // 답을 입력하는 곳이 n번째 시도 : abc 바로옆에서 시작되어서 한 줄 밑에서 시작하게 추가함
-            }
+        // [0,0,0] 다른 수정 방법
+        // while (true) {                                              // fix1 1번째 시도 000은 초기값인데, 0번째 시도로 나오게 표시하였고,
+        //   if (tryCount > 0){                                      // 0번째 시도는 출력하지 않기위해 if (tryCount > 0) 이라는 조건을 추가함
+        //        System.out.print(tryCount + "번째 시도 : ");         // fix2 "번째 시도 : " ) + ~~~ 뒷부분 Arrays.toString 삭제후
+        //        for (int i = 0; i < pickNumbers.length; i++) {      // 반복문으로 picknumbers 배열 0 1 2 번째 출력
+        //            System.out.print(pickNumbers[i]);               // println 때문에 출력이 한 칸씩 내려와서 두 줄 모두 print로 작성
+        //        }
+        //       System.out.println();                               // 답을 입력하는 곳이 n번째 시도 : abc 바로옆에서 시작되어서 한 줄 밑에서 시작하게 추가함
+        //   }
+
+        while (true) {
             for (int i = 0; i < pickNumbers.length; i++) {
                 pickNumbers[i] = scanner.nextInt();
             }
@@ -62,6 +65,7 @@ public class GameJo {
             }
             // 3-2 숫자의 값과 위치가 모두 일치하면 일치한 횟수 + "S" +
             //     숫자의 값은 일치하지만 위치가 틀렸린 경우의 횟수 + "B" 출력하기
+            System.out.println(tryCount + "번째 시도 : " + Arrays.toString(pickNumbers));
             System.out.println(ball + "B" + strike + "S");
 
             // 4. 3S가 출력이 된다면 몇번만에 맞췄는지 출력한 후에 게임 종료하기.
