@@ -1,6 +1,8 @@
 package ForkBaseballNumber;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameJo {
@@ -9,17 +11,23 @@ public class GameJo {
         // 1-1 랜덤으로 숫자 3개를 생성하고 저장할 곳 만들기
         //      단, 숫자가 겹치면 안됨.
         int[] randomNumbers = new int[3]; // 3개의 값이 저장될 곳 만들기
-
-        for (int ballNum = 0; ballNum < randomNumbers.length; ballNum++) {
-            randomNumbers[ballNum] = (int) (Math.random() * 10); // Math.random은 0이상 1미만의 값을 반환하기 때문에 10을 곱해서
-                                                                // 0 ~ 10을 받아오게 만들어 줘야한다.
-
-            for (int search = 0; search < ballNum; search++) {
-                if (randomNumbers[ballNum] == randomNumbers[search]) {
-                    ballNum--; // 중복된 숫자가 발견되면 ballNum을 다시 감소시킴
-                    break; // 루프 탈출
-                }
-            }
+        // 수정 1. 컴퓨터가 랜덤숫자를 하나만 계속 뽑는 경우 방지
+        // 수정 1-1 0~9를 가지는 숫자 배열 생성
+        Random selectNumber = new Random();
+        ArrayList<Integer> numberList = new ArrayList(); // 수정 1-1-1 초안 int []로 만들었으나, 특정 인덱스를 제거하는 메서드가 없어서 ArrayList 이용
+        for (int i=0;i<10;i++){
+            numberList.add(i);
+        }
+        for (int i=0; i<randomNumbers.length;){
+            int j = 10-i;
+            int ranomNumber = selectNumber.nextInt(j); // 수정 1-2 랜덤 숫자를 첫바퀴는 0~9사이 두번째는 0~8.. 진행 할 때 마다 하나씩 줄어들게 만든다.
+                                                       // (int) (Math.random() * 10) 초안 : Math.random은 0이상 1미만의 값을 반환하기 때문에 10을 곱해서
+                                                       // 0 ~ 10을 받아오게 만들어 줘야한다.
+            randomNumbers[i] = numberList.get(ranomNumber); // 수정 1-3 생성된 랜덤숫자를 이용해서 미리 만들어둔 0~9 배열에서 하나를 가져온다.
+            numberList.remove(ranomNumber); // 수정 1-4 배열에서 가져온 인덱스를 삭제해서 배열의 크기를 줄여준다.
+                                            // 수정 1-2 ~ 1-4를 통해 배열의 크기를 조절해서 컴퓨터가 9를 연속으로 뽑지 못하게 방지하고 그에따라 배열의 크기도 수정한다.
+                                            // 수정을 통해 컴퓨터가 하나의 랜덤숫자를 뽑더라도 이상없이 랜덤으로 숫자가 생성된다.
+            i++;
         }
         System.out.println(Arrays.toString(randomNumbers)); // 중복없는 난수를 출력
 
